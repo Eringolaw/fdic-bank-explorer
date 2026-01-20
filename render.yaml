@@ -3,9 +3,9 @@ services:
     name: fdic-bank-explorer
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn fdic_dashboard:server --bind 0.0.0.0:$PORT
+    startCommand: gunicorn fdic_dashboard:server --bind 0.0.0.0:$PORT --workers 1 --timeout 120
     envVars:
       - key: DEBUG
         value: "False"
       - key: PYTHON_VERSION
-        value: "3.11.0"
+        value: "3.11.6"
